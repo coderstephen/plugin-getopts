@@ -41,7 +41,7 @@ function argu -d "Parse command options"
       # Match a short or long single option.
       case '--*' '-?'
         if contains -- $argv[1] $options
-          echo -E "$argv[1]"
+          printf "%s\n" $argv[1]
         else if contains -- $argv[1]: $options
           # Option must have a value.
           if begin; not set -q argv[2]; or expr "$argv[2]" : '-.*' > /dev/null; end
